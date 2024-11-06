@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Non-Profit Checkpoints and Progress Tracker</title>
+  <!-- Leaflet CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet/dist/leaflet.css"
+  />
+  <style>
+    /* Global Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Map Styles */
+    #map {
+      height: 60vh;
+      width: 100%;
+    }
+
+    /* Progress Tracker Styles */
+    .progress-container {
+      width: 80%;
+      margin: 20px auto;
+    }
+
+    .progress-bar {
+      position: relative;
+      height: 10px;
+      background: #e0e0e0;
+      border-radius: 5px;
+      margin-bottom: 30px;
+    }
+
+    .progress {
+      position: absolute;
+      height: 100%;
+      background: #76c7c0;
+      border-radius: 5px;
+      width: 0%;
+      transition: width 0.3s ease-in-out;
+    }
+
+    .progress-steps {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .step {
+      text-align: center;
+      position: relative;
+      flex: 1;
+    }
+
+    .step .bullet {
+      width: 30px;
+      height: 30px;
+      background: #e0e0e0;
+      border-radius: 50%;
+      display: inline-block;
+      line-height: 30px;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .step.completed .bullet {
+      background: #76c7c0;
+    }
+
+    .step p {
+      margin: 0;
+    }
+
+    /* Navigation */
+    .nav-buttons {
+      text-align: center;
+      margin: 20px;
+    }
+
+    .nav-buttons button {
+      padding: 10px 20px;
+      margin: 0 10px;
+      background: #76c7c0;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .nav-buttons button:hover {
+      background: #5ba9a3;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation Buttons -->
+<div class="nav-buttons">
+  <button onclick="showMap()">Show Map</button>
+  <button onclick="showProgress()">Show Progress Tracker</button>
+</div>
+
+<!-- Map Container -->
+<div id="map"></div>
+
+<!-- Progress Tracker Container -->
+<div class="progress-container" id="progress-tracker" style="display: none;">
+  <div class="progress-bar">
+    <div class="progress" id="progress-bar"></div>
+  </div>
+  <div class="progress-steps">
+    <div class="step" id="step-1">
+      <div class="bullet">1</div>
+      <p>Initiated</p>
+    </div>
+    <div class="step" id="step-2">
+      <div class="bullet">2</div>
+      <p>In Progress</p>
+    </div>
+    <div class="step" id="step-3">
+      <div class="bullet">3</div>
+      <p>Halfway</p>
+    </div>
+    <div class="step" id="step-4">
+      <div class="bullet">4</div>
+      <p>Near Completion</p>
+    </div>
+    <div class="step" id="step-5">
+      <div class="bullet">5</div>
+      <p>Completed</p>
+    </div>
+  </div>
+</div>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<!-- JavaScript Code -->
+<script>
+  // Data for Organizations
+  var organizations = [
+    {
+      name: 'Non-Profit A',
+      checkpoints: [
+        {
+          name: 'Start Point',
+          coords: [34.0522, -118.2437],
+          date: '2023-01-01',
+          country: 'United States'
+        },
+        {
+          name: 'Checkpoint 1',
+          coords: [36.1699, -115.1398],
+          date: '2023-02-15',
+          country: 'United States'
+        },
+        {
+          name: 'Checkpoint 2',
+          coords: [40.7128, -74.0060],
+          date: '2023-04-10',
+          country: 'United States'
+        }
+      ],
+      progressPercentage: 60,
+      color: '#FF0000' // Red color for lines
+    },
+    {
+      name: 'Non-Profit B',
+      checkpoints: [
+        {
+          name: 'Start Point',
+          coords: [51.5074, -0.1278],
+          date: '2023-03-01',
+          country: 'United Kingdom'
+        },
+        {
+          name: 'Checkpoint 1',
+          coords: [48.8566, 2.3522],
+          date: '2023-05-20',
+          country: 'France'
+        },
+        {
+          name: 'Checkpoint 2',
+          coords: [41.9028, 12.4964],
+          date: '2023-07-05',
+          country: 'Italy'
+        }
+      ],
+      progressPercentage: 40,
+      color: '#0000FF' // Blue color for lines
+    }
+  ];
+
+  // Initialize Map
+  var map = L.map('map').setView([20, 0], 2);
+
+  // Add Tile Layer
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors',
+  }).addTo(map);
+
+  // Add Markers and Lines to Map
+  organizations.forEach(function(org) {
+    var checkpointCoords = [];
+
+    org.checkpoints.forEach(function(checkpoint) {
+      // Add marker for each checkpoint
+      var marker = L.marker(checkpoint.coords)
+        .addTo(map)
+        .bindPopup(
+          `<strong>${checkpoint.name}</strong><br>${org.name}<br>Date: ${checkpoint.date}<br>Country: ${checkpoint.country}`
+        );
+
+      // Show country on hover
+      marker.on('mouseover', function(e) {
+        marker.openPopup();
+      });
+      marker.on('mouseout', function(e) {
+        marker.closePopup();
+      });
+
+      checkpointCoords.push(checkpoint.coords);
+    });
+
+    // Draw line connecting the checkpoints
+    var polyline = L.polyline(checkpointCoords, { color: org.color }).addTo(map);
+  });
+
+  // Functions to Show Map and Progress Tracker
+  function showMap() {
+    document.getElementById('map').style.display = 'block';
+    document.getElementById('progress-tracker').style.display = 'none';
+    map.invalidateSize(); // Fix map display issue when hidden
+  }
+
+  function showProgress() {
+    document.getElementById('map').style.display = 'none';
+    document.getElementById('progress-tracker').style.display = 'block';
+    updateProgressTracker(organizations[0]); // Example with first organization
+  }
+
+  // Update Progress Tracker
+  function updateProgressTracker(org) {
+    var progressBar = document.getElementById('progress-bar');
+    progressBar.style.width = org.progressPercentage + '%';
+
+    // Update Steps
+    var steps = [1, 2, 3, 4, 5];
+    steps.forEach(function(stepNumber, index) {
+      var stepElement = document.getElementById('step-' + stepNumber);
+      if (index < org.progressPercentage / 20) {
+        stepElement.classList.add('completed');
+      } else {
+        stepElement.classList.remove('completed');
+      }
+    });
+  }
+
+  // Initial Display
+  showMap();
+</script>
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkpoint Quest</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap"
+        rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: #F5F5F5;
+      color: #333333;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .primary-btn {
+      background-color: #FF6F61;
+      color: #FFFFFF;
+      border-radius: 8px;
+      padding: 10px 20px;
+      text-transform: uppercase;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: bold;
+      transition: background-color 0.3s, box-shadow 0.3s;
+    }
+
+    .primary-btn:hover {
+      background-color: #ff8a7a;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+
+<body>
+<!-- Landing Page -->
+<header class="bg-white fixed w-full shadow-md z-10">
+  <div class="container mx-auto flex justify-between items-center py-4 px-6">
+    <div class="text-2xl font-bold text-[#FF6F61]">Checkpoint Quest</div>
+    <nav class="space-x-6">
+      <a href="#" class="hover:text-[#FF6F61]">Home</a>
+      <a href="#" class="hover:text-[#FF6F61]">How It Works</a>
+      <a href="#" class="hover:text-[#FF6F61]">Impact</a>
+      <a href="#" class="hover:text-[#FF6F61]">Sign In</a>
+    </nav>
+  </div>
+</header>
+
+<main class="pt-20">
+  <!-- Hero Section -->
+  <section class="relative bg-cover bg-center h-screen"
+           style="background-image: url('https://placehold.co/1920x1080?text=Adventurous+Landscape+with+Mountains+and+Forests');">
+    <div class="absolute inset-0 bg-black opacity-50"></div>
+    <div class="container mx-auto text-center text-white relative z-10">
+      <h1 class="text-5xl font-bold mt-20">Embark on Your Adventure</h1>
+      <p class="mt-4 text-xl">Turn your donations into an epic journey that makes a real-world impact.</p>
+      <button class="primary-btn mt-8">Start Your Quest</button>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="container mx-auto py-16">
+    <h2 class="text-3xl font-bold text-center mb-10">Features</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="text-center">
+        <i class="fas fa-map-signs text-4xl text-[#03A9F4]"></i>
+        <h3 class="text-xl font-bold mt-4">Interactive Journey</h3>
+        <p class="mt-2">Embark on a journey with interactive maps and checkpoints.</p>
+      </div>
+      <div class="text-center">
+        <i class="fas fa-globe text-4xl text-[#4CAF50]"></i>
+        <h3 class="text-xl font-bold mt-4">Real-Time Impact</h3>
+        <p class="mt-2">See the real-time impact of your contributions around the globe.</p>
+      </div>
+      <div class="text-center">
+        <i class="fas fa-users text-4xl text-[#FFC107]"></i>
+        <h3 class="text-xl font-bold mt-4">Community Engagement</h3>
+        <p class="mt-2">Engage with a community of like-minded adventurers.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-white py-6">
+    <div class="container mx-auto flex justify-between items-center">
+      <div class="space-x-4">
+        <a href="#" class="hover:text-[#FF6F61]">About</a>
+        <a href="#" class="hover:text-[#FF6F61]">Contact</a>
+        <a href="#" class="hover:text-[#FF6F61]">Privacy Policy</a>
+      </div>
+      <div class="space-x-4">
+        <a href="#" class="hover:text-[#FF6F61]"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="hover:text-[#FF6F61]"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="hover:text-[#FF6F61]"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </footer>
+</main>
+
+<!-- Avatar Creation Screen -->
+<section class="container mx-auto py-16">
+  <header class="text-center">
+    <h2 class="text-2xl font-bold">Step 1 of 3: Create Your Avatar</h2>
+  </header>
+  <div class="flex flex-col md:flex-row mt-10">
+    <div class="md:w-1/2 p-4">
+      <div class="bg-white shadow-md rounded-lg p-6">
+        <img src="https://placehold.co/400x400?text=Avatar+Preview+Image" alt="Avatar Preview Image"
+             class="mx-auto">
+      </div>
+    </div>
+    <div class="md:w-1/2 p-4">
+      <div class="bg-white shadow-md rounded-lg p-6">
+        <h3 class="text-xl font-bold mb-4">Customization Options</h3>
+        <div class="tabs">
+          <button class="tab active">Hair</button>
+          <button class="tab">Eyes</button>
+          <button class="tab">Outfit</button>
+          <button class="tab">Accessories</button>
+        </div>
+        <div class="grid grid-cols-3 gap-4 mt-4">
+          <img src="https://placehold.co/100x100?text=Hair+Option+1" alt="Hair Option 1"
+               class="border p-2">
+          <img src="https://placehold.co/100x100?text=Hair+Option+2" alt="Hair Option 2"
+               class="border p-2">
+          <img src="https://placehold.co/100x100?text=Hair+Option+3" alt="Hair Option 3"
+               class="border p-2">
+          <!-- Add more options as needed -->
+        </div>
+        <button class="primary-btn mt-8">Save & Proceed</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Interactive Map Screen -->
+<section class="container mx-auto py-16">
+  <header class="flex justify-between items-center">
+    <div class="text-2xl font-bold text-[#FF6F61]">Checkpoint Quest</div>
+    <div class="flex items-center space-x-4">
+      <span>XP: <progress value="70" max="100"></progress></span>
+      <span>Level: 5</span>
+    </div>
+  </header>
+  <div class="mt-10">
+    <div class="bg-white shadow-md rounded-lg p-6 relative">
+      <img src="https://placehold.co/800x400?text=Stylized+Illustrative+Map" alt="Stylized Illustrative Map"
+           class="w-full">
+      <!-- Checkpoints -->
+      <div class="absolute top-0 left-0">
+        <div class="flex space-x-4">
+          <div class="bg-gray-500 p-2 rounded-full"><i class="fas fa-lock"></i></div>
+          <div class="bg-[#03A9F4] p-2 rounded-full"><i class="fas fa-map-pin"></i></div>
+          <div class="bg-[#4CAF50] p-2 rounded-full"><i class="fas fa-check"></i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Dashboard/Home Screen -->
+<section class="container mx-auto py-16">
+  <header class="flex justify-between items-center">
+    <h2 class="text-2xl font-bold">Welcome Back, [Username]!</h2>
+    <div class="flex items-center space-x-4">
+      <img src="https://placehold.co/50x50?text=User+Avatar+Image" alt="User Avatar Image"
+           class="rounded-full">
+      <div class="dropdown">
+        <button class="primary-btn">Account Settings</button>
+      </div>
+    </div>
+  </header>
+  <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div class="bg-white shadow-md rounded-lg p-6">
+      <h3 class="text-xl font-bold mb-4">Progress Overview</h3>
+      <ul>
+        <li>Total Donations: $500</li>
+        <li>Experience Points (XP): 1200</li>
+        <li>Badges Earned: 5</li>
+        <li>Next Checkpoint: Mountain Peak</li>
+      </ul>
+    </div>
+    <div class="bg-white shadow-md rounded-lg p-6">
+      <h3 class="text-xl font-bold mb-4">Quick Actions</h3>
+      <button class="primary-btn mb-2">Continue Journey</button>
+      <button class="primary-btn mb-2">Join Event</button>
+      <button class="primary-btn">View Team</button>
+    </div>
+    <div class="bg-white shadow-md rounded-lg p-6">
+      <h3 class="text-xl font-bold mb-4">Community Highlights</h3>
+      <div class="overflow-y-scroll h-40">
+        <div class="flex items-center space-x-4 mb-4">
+          <img src="https://placehold.co/40x40?text=User+Avatar+Small" alt="User Avatar Small"
+               class="rounded-full">
+          <div>
+            <p><strong>John Doe</strong> completed a checkpoint.</p>
+            <p class="text-gray-500 text-sm">2 hours ago</p>
+          </div>
+        </div>
+        <!-- Add more activity feeds as needed -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Achievements & Badges Screen -->
+<section class="container mx-auto py-16">
+  <header class="text-center">
+    <h2 class="text-2xl font-bold">Your Achievements</h2>
+  </header>
+  <div class="grid grid-cols-2 sm:grid-cols-4 gap-8 mt-10">
+    <div class="badge">
+      <img src="https://placehold.co/100x100?text=Earned+Badge+1" alt="Earned Badge 1" class="mx-auto">
+    </div>
+    <div class="badge">
+      <img src="https://placehold.co/100x100?text=Earned+Badge+2" alt="Earned Badge 2" class="mx-auto">
+    </div>
+    <div class="badge">
+      <img src="https://placehold.co/100x100?text=Locked+Badge+1" alt="Locked Badge 1" class="mx-auto grayscale">
+    </div>
+    <div class="badge">
+      <img src="https://placehold.co/100x100?text=Locked+Badge+2" alt="Locked Badge 2" class="mx-auto grayscale">
+    </div>
+    <!-- Add more badges as needed -->
+  </div>
+</section>
+</body>
+
+</html>
+```

@@ -1,0 +1,192 @@
+/* General Styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Header Styles */
+header {
+  background-color: #fff;
+  padding: 10px 20px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav .logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ff6f61;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+}
+
+nav ul li {
+  margin-left: 20px;
+}
+
+nav ul li a {
+  font-weight: bold;
+  color: #333;
+}
+
+/* Banner Styles */
+.banner {
+  background-image: url('images/banner.jpg');
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.banner h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.banner p {
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+.cta-button {
+  background-color: #ff6f61;
+  color: #fff;
+  padding: 15px 30px;
+  font-size: 18px;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.cta-button:hover {
+  background-color: #ff8a80;
+}
+
+/* Features Section */
+.features {
+  display: flex;
+  justify-content: space-around;
+  padding: 50px 20px;
+  background-color: #f9f9f9;
+}
+
+.feature {
+  width: 30%;
+  text-align: center;
+}
+
+.feature h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.feature p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Footer Styles */
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Avatar Creation Styles */
+.avatar-creator {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.avatar-preview {
+  margin-right: 50px;
+}
+
+.avatar-preview img {
+  width: 300px;
+  height: auto;
+  border: 1px solid #ccc;
+}
+
+.customization-options {
+  max-width: 300px;
+}
+
+.customization-options h2 {
+  margin-bottom: 20px;
+}
+
+.customization-options form {
+  display: flex;
+  flex-direction: column;
+}
+
+.customization-options label {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.customization-options select,
+.cta-button {
+  padding: 10px;
+  font-size: 16px;
+}
+
+.customization-options .cta-button {
+  margin-top: 20px;
+}
+
+/* Map Styles */
+.map-container {
+  position: relative;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.map-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.checkpoints {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.checkpoint {
+  position: absolute;
+}
+
+.checkpoint img {
+  width: 50px;
+  height: 50px;
+}
+
+.avatar-marker {
+  position: absolute;
+}
+
+.avatar-marker img {
+  width: 60px;
+  height: 60px;
+}
